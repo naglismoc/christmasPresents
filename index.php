@@ -13,26 +13,35 @@
     </header>
 
 
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mb-4">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label>Dovalėnės pavadinimas</label>
+                        <input type="text" class="form-control" name="title" placeholder="Pvz lego traktorius">
+                    </div>
+                    <div class="form-group">
+                        <label>Kaina</label>
+                        <input type="number" class="form-control" name="price" placeholder="Pvz 40.00">
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="isPacked" id="present">
+                        <label class="form-check-label" for="present">Dovalėnė supakuota</label>
+                    </div>
+                        <button class="btn btn-success" type="submit">išsaugoti</button>
+                </form>
+            </div>
+            <div class="col-6"></div>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($presents as $present) { ?>
-            <tr>
-                <td><?=$present->presentTitle?></td>
-                <td><?=$present->price?></td>
-                <td><?=$present->wrapped?></td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+    </div>
 
+
+        <table class="table table-striped">
+            <?php include "./views/components/table.php";?>
+        </table>
+    </div>
 
 
 </body>
