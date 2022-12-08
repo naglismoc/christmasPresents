@@ -19,23 +19,27 @@
                 <form action="" method="post">
                     <div class="form-group">
                         <label>Dovalėnės pavadinimas</label>
-                        <input type="text" class="form-control" name="title" placeholder="Pvz lego traktorius">
+                        <input type="text" class="form-control" name="title" placeholder="Pvz lego traktorius" value="<?=(isset($_GET['edit'])) ? $present->presentTitle : ""?>">
                     </div>
                     <div class="form-group">
                         <label>Kaina</label>
-                        <input type="number" class="form-control" name="price" placeholder="Pvz 40.00">
+                        <input type="number" class="form-control" name="price" placeholder="Pvz 40.00" value="<?=(isset($_GET['edit'])) ? $present->price : ""?>">
                     </div>
                     
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="isPacked" id="present">
+                        <input type="checkbox" <?=$checked?>  class="form-check-input" name="isPacked" id="present">
                         <label class="form-check-label" for="present">Dovalėnė supakuota</label>
                     </div>
-                        <button class="btn btn-success" type="submit">išsaugoti</button>
+                    <?php if(!isset($_GET['edit'])) { ?>
+                            <button class="btn btn-success" name="save" type="submit">išsaugoti</button>
+                        <?php } else { ?>
+                            <input type="hidden" name="id" value="<?=$present->id?>">
+                            <button class="btn btn-primary" name="update" type="submit">atnaujinti</button>
+                        <?php } ?>
                 </form>
             </div>
             <div class="col-6"></div>
-
-    </div>
+        </div>
 
 
         <table class="table table-striped">

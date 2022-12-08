@@ -13,8 +13,18 @@
         <td><?=$present->presentTitle?></td>
         <td><?=$present->price?></td>
         <td><?=   ($present->wrapped) ? "taip" : "ne"    ?></td>
-        <td><button class="btn btn-success" type="submit">redaguoti</button></td>
-        <td><button class="btn btn-danger" type="submit">trinti</button></td>
+        <td>
+        <form action="" method="GET">
+                <input type="hidden" name="id" value="<?=$present->id?>">
+                <button class="btn btn-success" name="edit" type="submit">redaguoti</button>
+            </form>
+        </td>
+        <td>
+            <form action="" method="POST">
+                <input type="hidden" name="id" value="<?=$present->id?>">
+                <button class="btn btn-danger" name="destroy" type="submit">trinti</button>
+            </form>
+        </td>
     </tr>
     <?php } ?>
 </tbody>
